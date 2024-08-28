@@ -15,8 +15,6 @@ df['FinalPrice'] = pd.to_numeric(df['FinalPrice'], errors='coerce')
 df['QuantitySold'].fillna(df['QuantitySold'].median(), inplace=True)
 df['FinalPrice'].fillna(df['FinalPrice'].median(), inplace=True)
 
-# Step 1: Descriptive Statistics
-
 # Mean
 mean_values = df.mean(numeric_only=True)
 
@@ -34,31 +32,6 @@ print("Mean:\n", mean_values)
 print("\nMedian:\n", median_values)
 print("\nMode:\n", mode_values)
 print("\nStandard Deviation:\n", std_values)
-
-# Step 2: Visualization
-
-# 1. Histogram for Distribution
-plt.figure(figsize=(10, 6))
-sns.histplot(df['QuantitySold'], bins=10, kde=True)
-plt.title('Distribution of Quantity Sold')
-plt.xlabel('Quantity Sold')
-plt.ylabel('Frequency')
-plt.show()
-
-# 2. Boxplot for Outliers
-plt.figure(figsize=(10, 6))
-sns.boxplot(x=df['FinalPrice'])
-plt.title('Boxplot of Final Price')
-plt.xlabel('Final Price')
-plt.show()
-
-# 3. Bar Plot for Categorical Data
-plt.figure(figsize=(10, 6))
-sns.countplot(x=df['PaymentMethod'])
-plt.title('Frequency of Payment Methods')
-plt.xlabel('Payment Method')
-plt.ylabel('Count')
-plt.show()
 
 OUTPUT:
 
